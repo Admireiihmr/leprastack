@@ -1162,7 +1162,11 @@ HTML_APP = """
     [data-theme="dark"] .upload-cell.has-file { background: rgba(22,163,74,0.1); border-color: var(--success); }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { overflow-x: hidden; }
+    /* Definite height chain so .main-area can size to its container rather
+       than the viewport: inside the portal's iframe, viewport units (vh/dvh)
+       can resolve against the OUTER window, which makes the shell taller than
+       the frame and scrolls the whole page — header included. */
+    html, body { height: 100%; overflow: hidden; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--ink);
@@ -1282,8 +1286,7 @@ HTML_APP = """
     .main-area {
       margin-left: var(--sidebar-w);
       transition: margin-left 0.25s ease;
-      height: 100vh;
-      height: 100dvh;          /* avoids the mobile URL-bar height jump */
+      height: 100%;            /* fills the window or iframe, never overflows it */
       display: flex;
       flex-direction: column;
       overflow: hidden;
