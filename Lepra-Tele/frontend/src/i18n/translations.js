@@ -159,7 +159,7 @@ const en = {
   'enroll.fullName': 'Full name',
   'enroll.phone': 'Phone',
   'enroll.age': 'Age',
-  'enroll.sex': 'Sex',
+  'enroll.sex': 'Gender',
   'enroll.sex.male': 'Male',
   'enroll.sex.female': 'Female',
   'enroll.sex.other': 'Other',

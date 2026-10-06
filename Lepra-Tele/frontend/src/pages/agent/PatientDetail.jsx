@@ -114,7 +114,7 @@ export default function PatientDetail() {
           <h2 className="text-sm font-semibold t-ink mb-3">Demographics</h2>
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">
             <DataRow label="Age" value={patient.age ? `${patient.age} yrs` : null} />
-            <DataRow label="Sex" value={patient.sex ? patient.sex.charAt(0).toUpperCase() + patient.sex.slice(1) : null} />
+            <DataRow label="Gender" value={patient.sex ? patient.sex.charAt(0).toUpperCase() + patient.sex.slice(1) : null} />
             <DataRow label="Phone" value={patient.phone} />
             <DataRow label="Referred by" value={patient.referred_by} />
             <DataRow label="Aadhaar" value={patient.aadhaar_id} />
