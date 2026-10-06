@@ -9,11 +9,11 @@ administrators oversee the operation.
 
 ## 1. Roles
 
-| Role | Who | What they do |
-|------|-----|--------------|
-| **Field Agent** | Community health worker / mediator | Enrol patients, capture history + the 11-symptom leprosy screening on-site, submit to the MO. No clinical decision. |
-| **Medical Officer (MO)** | Doctor | Review the agent's submission, run a Zoom tele-consult, record a clinical assessment, and issue a decision (close / alternative diagnosis / refer). |
-| **Administrator** | Programme admin | Monitor the dashboard (metrics, escalations), manage users, and review the audit log. Provisioned out-of-band (no self-registration). |
+| Role                           | Who                                | What they do                                                                                                                                        |
+| ------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Field Agent**          | Community health worker / mediator | Enrol patients, capture history + the 11-symptom leprosy screening on-site, submit to the MO. No clinical decision.                                 |
+| **Medical Officer (MO)** | Doctor                             | Review the agent's submission, run a Zoom tele-consult, record a clinical assessment, and issue a decision (close / alternative diagnosis / refer). |
+| **Administrator**        | Programme admin                    | Monitor the dashboard (metrics, escalations), manage users, and review the audit log. Provisioned out-of-band (no self-registration).               |
 
 > Patients do **not** log in. They are enrolled by an agent and receive updates via WhatsApp.
 
@@ -35,7 +35,7 @@ administrators oversee the operation.
                ▲                          │ 6. Decision              │
                │   WhatsApp updates       ▼                          │
         ┌──────┴───────┐        ┌──────────────────┐                 │
-        │   PATIENT    │◀───────│ close / refer /  │                 │
+        │   PATIENT    │◀───────│ close / refer / │                 │
         │  (WhatsApp)  │        │ alternative dx   │                 │
         └──────────────┘        └──────────────────┘                 │
                                         │                            │
@@ -61,6 +61,7 @@ The agent intake is a single wizard that batches all writes for **offline safety
 (works with no connectivity; syncs when back online).
 
 ### Step 1 — Enrollment
+
 - **Programme context:** select **PHC / CHC** (Bakawand, Karpawand, Kolawal, Mangnaar, Kachnaar, Maalgaon, Jebel). Selecting a PHC **auto-fills State (Chhattisgarh) and District (Bastar)**.
 - **Patient identity:** name, age, sex, **phone (exactly 10 digits)**.
 - **Contact & location:** state/district (auto), village, gram panchayat, house no.
@@ -69,11 +70,13 @@ The agent intake is a single wizard that batches all writes for **offline safety
 - Consent checkbox (required).
 
 ### Step 2 — History
+
 - **Chronic conditions:** Diabetes, Hypertension, TB, HIV, Pregnancy, None.
   - **"Pregnancy" is hidden for male patients.**
 - Optional prior prescription / lab photos and past-visit notes.
 
 ### Step 3 — Symptoms
+
 - **Screening context:** Date of screening **auto-set to today**; **GPS location auto-captured** on entry (re-capturable).
 - **11-question leprosy symptom checklist** (numbered, Yes/No each):
   1. Light-coloured or reddish skin patch(es)
@@ -91,6 +94,7 @@ The agent intake is a single wizard that batches all writes for **offline safety
 - **Submit to Medical Officer** — the agent makes **no decision**; every case is routed to the MO queue.
 
 ### What happens on submit
+
 1. The full intake (patient + history + screening + images) is queued in IndexedDB and uploaded (immediately if online, on reconnect if offline).
 2. Backend creates the **patient** + **case**, stores the screening, and computes a **leprosy risk summary** (High / Moderate / Low) for the MO's reference only.
 3. Case status → **awaiting_mo**.
@@ -101,9 +105,11 @@ The agent intake is a single wizard that batches all writes for **offline safety
 ## 5. Medical Officer workflow
 
 ### Queue
+
 - The MO sees their cases (patient name, case ID, status). Risk labels are intentionally **not** shown here.
 
 ### Case Review (collapsible cards to reduce scrolling)
+
 1. **Tele-consult** — schedule a Zoom slot (date/time + duration). Booking:
    - Creates a Zoom meeting and sends the **join link via WhatsApp to the patient, the agent, and the MO**.
    - Case status → **scheduled**.
@@ -118,11 +124,13 @@ The agent intake is a single wizard that batches all writes for **offline safety
    - **Refer** (`refer`)
 
 ### On decision ("Save decision & notify")
+
 - The decision is **saved first** (independent of WhatsApp), the **MO report PDF** is generated and stored in the patient folder.
 - A WhatsApp message (with the MO report attached) is sent to the **patient and the agent** — **not** the MO.
 - Case status → `closed_remote` / `closed_alt_dx` / `referred`.
 
 ### Expired sessions = read-only
+
 - If a consult slot has **passed**, the case becomes **read-only**: a banner is shown, the clinical assessment fields are disabled, and the decision cannot be changed. Everything remains viewable/downloadable.
 
 ---
@@ -137,11 +145,11 @@ The agent intake is a single wizard that batches all writes for **offline safety
 
 ## 7. Notifications (WhatsApp)
 
-| Event | Recipients | Content |
-|-------|-----------|---------|
-| Tele-consult scheduled | **Patient + Agent + MO** | Zoom join link, time, duration |
-| MO decision issued | **Patient + Agent** (not MO) | Outcome + next step + MO report PDF |
-| Community close / rule-out (legacy) | Patient | Outcome + advice |
+| Event                               | Recipients                         | Content                             |
+| ----------------------------------- | ---------------------------------- | ----------------------------------- |
+| Tele-consult scheduled              | **Patient + Agent + MO**     | Zoom join link, time, duration      |
+| MO decision issued                  | **Patient + Agent** (not MO) | Outcome + next step + MO report PDF |
+| Community close / rule-out (legacy) | Patient                            | Outcome + advice                    |
 
 Requires approved Meta WhatsApp templates: `appointment_scheduled`, `triage_decision`, `triage_decision_with_report`. Recipients without a saved phone are skipped gracefully.
 
@@ -180,18 +188,19 @@ intake ─▶ awaiting_mo ─▶ scheduled ─▶ (consult) ─▶ closed_remote
 
 ## 10. Architecture & tech stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React + Vite + Tailwind CSS, PWA (installable, offline-first via IndexedDB + service worker) |
-| Backend | FastAPI (Python) |
-| Auth | Firebase Authentication (email/password) + role custom claims |
-| Database | Cloud Firestore (`users`, `patients`, `cases`, `appointments`, `notifications`, `recalls`) |
-| File storage | Firebase Storage (per-patient folders) |
-| Video | Zoom (meeting creation + Meeting SDK signature; host/participant links) |
-| Messaging | WhatsApp Business (Meta) templates |
-| PDF | ReportLab (agent report + MO report) |
+| Layer        | Technology                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| Frontend     | React + Vite + Tailwind CSS, PWA (installable, offline-first via IndexedDB + service worker)           |
+| Backend      | FastAPI (Python)                                                                                       |
+| Auth         | Firebase Authentication (email/password) + role custom claims                                          |
+| Database     | Cloud Firestore (`users`, `patients`, `cases`, `appointments`, `notifications`, `recalls`) |
+| File storage | Firebase Storage (per-patient folders)                                                                 |
+| Video        | Zoom (meeting creation + Meeting SDK signature; host/participant links)                                |
+| Messaging    | WhatsApp Business (Meta) templates                                                                     |
+| PDF          | ReportLab (agent report + MO report)                                                                   |
 
 ### Offline-first
+
 The agent intake is fully usable offline: the bundle (patient + history + screening + image blobs) is stored in IndexedDB and uploaded by the sync engine when connectivity returns. Forced submission always routes to the MO.
 
 ---
