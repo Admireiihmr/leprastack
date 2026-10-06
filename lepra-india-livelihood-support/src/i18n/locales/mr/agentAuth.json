@@ -1,0 +1,22 @@
+{
+  "back": "मागे",
+  "portalTitle": "फील्ड एजंट पोर्टल",
+  "signInHeading": "साइन इन करा",
+  "signUpHeading": "एजंट खाते तयार करा",
+  "signInSubtitle": "तुमचे नोंदणीकृत फील्ड एजंट लॉगिन तपशील वापरा.",
+  "signUpSubtitle": "नवीन फील्ड एजंट म्हणून स्वतः नोंदणी करा.",
+  "signInTab": "साइन इन",
+  "signUpTab": "साइन अप",
+  "fullNameLabel": "पूर्ण नाव",
+  "fullNamePlaceholder": "उदा. राजेश पात्रा",
+  "emailLabel": "ईमेल",
+  "emailPlaceholder": "agent@example.org",
+  "passwordLabel": "पासवर्ड",
+  "passwordPlaceholder": "किमान 6 अक्षरे",
+  "nameRequiredError": "कृपया तुमचे पूर्ण नाव टाका.",
+  "passwordLengthError": "पासवर्ड किमान 6 अक्षरांचा असावा.",
+  "authFailedError": "प्रमाणीकरण अयशस्वी झाले.",
+  "signInSubmit": "साइन इन करा",
+  "signUpSubmit": "खाते तयार करा",
+  "sopNotice": "पुढे जाताना तुम्ही LEPRA Society च्या SOP मार्गदर्शक तत्त्वांचे पालन करण्यास सहमती देता."
+}

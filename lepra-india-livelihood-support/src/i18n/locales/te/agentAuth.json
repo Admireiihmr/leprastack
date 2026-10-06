@@ -1,0 +1,22 @@
+{
+  "back": "వెనుకకు",
+  "portalTitle": "ఫీల్డ్ ఏజెంట్ పోర్టల్",
+  "signInHeading": "సైన్ ఇన్ చేయండి",
+  "signUpHeading": "ఏజెంట్ ఖాతా సృష్టించండి",
+  "signInSubtitle": "మీ నమోదిత ఫీల్డ్ ఏజెంట్ లాగిన్ వివరాలను వాడండి.",
+  "signUpSubtitle": "కొత్త ఫీల్డ్ ఏజెంట్‌గా స్వయంగా నమోదు చేసుకోండి.",
+  "signInTab": "సైన్ ఇన్",
+  "signUpTab": "సైన్ అప్",
+  "fullNameLabel": "పూర్తి పేరు",
+  "fullNamePlaceholder": "ఉదా. రాజేష్ పాత్రా",
+  "emailLabel": "ఇమెయిల్",
+  "emailPlaceholder": "agent@example.org",
+  "passwordLabel": "పాస్‌వర్డ్",
+  "passwordPlaceholder": "కనీసం 6 అక్షరాలు",
+  "nameRequiredError": "దయచేసి మీ పూర్తి పేరు నమోదు చేయండి.",
+  "passwordLengthError": "పాస్‌వర్డ్ కనీసం 6 అక్షరాలు ఉండాలి.",
+  "authFailedError": "ప్రామాణీకరణ విఫలమైంది.",
+  "signInSubmit": "సైన్ ఇన్ చేయండి",
+  "signUpSubmit": "ఖాతా సృష్టించండి",
+  "sopNotice": "కొనసాగించడం ద్వారా మీరు LEPRA Society యొక్క SOP మార్గదర్శకాలను పాటించడానికి అంగీకరిస్తున్నారు."
+}

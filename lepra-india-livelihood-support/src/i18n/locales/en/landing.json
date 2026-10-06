@@ -1,0 +1,28 @@
+{
+  "sopApproved": "SOP Approved",
+  "chooseYourPortal": "Choose Your Portal",
+  "roleBasedAccess": "Role-Based Access",
+  "intro": "Each role has its own secure entry point. Field agents can sign up themselves; approvers and super admins use credentials provisioned by the program owner.",
+  "continue": "Continue",
+  "provisionAdmin": "Provision admin account →",
+  "portals": {
+    "agent": {
+      "title": "Field Agent Portal",
+      "subtitle": "Sign Up or Sign In",
+      "description": "Register beneficiaries, submit intake forms, upload verification, and track your own cases.",
+      "bullets": ["Secure Intake Form", "Case Submission", "Verification Upload", "Field Workspace"]
+    },
+    "approver": {
+      "title": "Approval Portal",
+      "subtitle": "Direct Login Only",
+      "description": "Review submitted applications and approve or reject cases with remarks.",
+      "bullets": ["View Applications", "Approve / Reject", "Beneficiary Review", "Add Remarks"]
+    },
+    "superadmin": {
+      "title": "Super Admin Portal",
+      "subtitle": "Direct Login Only",
+      "description": "Full operational dashboard with analytics, agent monitoring, and recovery reports.",
+      "bullets": ["Full Dashboard", "Analytics", "Agent Monitoring", "Recovery Reports"]
+    }
+  }
+}

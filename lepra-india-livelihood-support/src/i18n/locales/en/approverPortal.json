@@ -1,0 +1,9 @@
+{
+  "roleBadge": "Approver",
+  "sessionTitle": "Approver Session",
+  "sessionDescriptionPrefix": "Signed in as",
+  "sessionDescriptionSuffix": "Review intake submissions, approve or reject, and add remarks.",
+  "workspaceLabel": "Approval Portal",
+  "workspaceTitle": "Eligibility Reviews & Decisions",
+  "workspaceSubtitle": "Review submitted intake forms. Approve cases to set the support amount and repayment term, or reject with remarks."
+}

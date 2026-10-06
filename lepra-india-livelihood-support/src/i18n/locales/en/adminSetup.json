@@ -1,0 +1,20 @@
+{
+  "back": "Back",
+  "headerTitle": "One-Time Admin Provisioning",
+  "cardTitle": "Assign Role to a Firebase Auth Account",
+  "cardSubtitle": "Use this once to grant Approver or Super Admin access. The account must already exist in Firebase Authentication.",
+  "howItWorksLabel": "How this works:",
+  "howItWorksBefore": "we sign in with the credentials you provide, write the role record under",
+  "howItWorksAfter": ", and sign back out. Nothing is stored on this device.",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "displayNameLabel": "Display Name",
+  "displayNamePlaceholder": "e.g. Program Approver",
+  "roleToAssignLabel": "Role to Assign",
+  "roleApprover": "Approver",
+  "roleSuperAdmin": "Super Admin",
+  "provisionedSuccess": "Provisioned {{email}} as \"{{role}}\". They can now log in through their portal.",
+  "provisioningFailed": "Provisioning failed.",
+  "submitButton": "Provision Role",
+  "footerNote": "Account must already exist in Firebase Console → Authentication → Users."
+}

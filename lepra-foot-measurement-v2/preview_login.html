@@ -1,0 +1,447 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEPRA &mdash; Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Full-bleed background photo + wash ── */
+    .login-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url('samples/login-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .login-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.55);
+      pointer-events: none;
+    }
+
+    /* ── Glass header ── */
+    .login-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+    }
+    .login-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-mark-group { display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 4px 12px -3px rgba(37,99,235,0.30);
+    }
+    .brand-title { font-weight: 800; font-size: 0.92rem; color: #0f1d36; letter-spacing: 0.02em; }
+    .brand-subtitle { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: #6a7896; }
+
+    /* ── Main layout ── */
+    .login-main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 24px 48px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .login-grid {
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .login-hero { display: none; }
+    .login-hero h1 { font-size: 2.6rem; font-weight: 800; color: #0f1d36; line-height: 1.15; letter-spacing: -0.01em; }
+    .login-hero p { margin-top: 16px; font-size: 1rem; color: #3b4b6b; line-height: 1.6; max-width: 480px; }
+    .login-features { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 480px; }
+    .feature-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 1px 2px 0 rgba(30,58,138,0.06), 0 4px 12px -2px rgba(30,58,138,0.08);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #3b4b6b;
+    }
+    .feature-chip .fc-icon { color: #2563eb; flex-shrink: 0; }
+
+    @media (min-width: 1024px) {
+      .login-grid { grid-template-columns: 1fr 420px; gap: 64px; }
+      .login-hero { display: block; }
+      .login-main { align-items: center; }
+    }
+
+    .login-card-wrap { width: 100%; max-width: 420px; margin: 0 auto; }
+    .login-form {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #d3deef;
+      border-radius: 20px;
+      padding: 32px 32px 36px;
+      box-shadow: 0 12px 32px -10px rgba(30,58,138,0.28), 0 4px 12px -4px rgba(15,23,42,0.10);
+    }
+    .login-form h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f1d36;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+    .login-form .sub {
+      font-size: 0.88rem;
+      color: #6a7896;
+      margin-bottom: 28px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .login-form .sub strong { color: #2563eb; font-weight: 700; }
+    .login-form .field {
+      margin-bottom: 20px;
+    }
+    .login-form .field input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #d3deef;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #0f1d36;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .login-form .field input::placeholder { color: #9db4d8; }
+    .login-form .field input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.20);
+    }
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: 0;
+      border-radius: 12px;
+      background: #2563eb;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.16s, transform 0.16s, box-shadow 0.16s;
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 14px -4px rgba(37,99,235,0.30);
+    }
+    .login-btn:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 12px 26px -8px rgba(37,99,235,0.30); }
+    .login-btn:active { transform: scale(0.98); }
+    .login-error {
+      color: #e53e3e;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 14px;
+      min-height: 20px;
+      text-align: center;
+    }
+    .login-footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #8294b5;
+    }
+    .login-lang {
+      margin-top: 16px;
+      text-align: center;
+    }
+    .login-lang select {
+      padding: 6px 12px;
+      border: 1px solid #d3deef;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: #6a7896;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    /* ── Glass footer ── */
+    .site-footer-bar {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+    }
+    .site-footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .footer-shield { display: flex; align-items: flex-start; gap: 10px; }
+    .footer-shield .fs-icon {
+      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(37,99,235,0.10); color: #2563eb; font-size: 14px;
+    }
+    .footer-shield .fs-title { font-size: 0.78rem; font-weight: 700; color: #0f1d36; }
+    .footer-shield .fs-note { font-size: 0.72rem; color: #6a7896; margin-top: 2px; max-width: 380px; line-height: 1.4; }
+    .footer-partner { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: #6a7896; }
+    .footer-partner img { height: 28px; border-radius: 6px; opacity: 0.92; }
+
+    @media (max-width: 768px) {
+      .login-header-inner { padding: 0 16px; }
+      .login-main { padding: 24px 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-overlay"></div>
+
+    <header class="login-header">
+      <div class="login-header-inner">
+        <div class="brand-mark-group">
+          <span class="brand-mark">🦶</span>
+          <div>
+            <div class="brand-title">LEPRA</div>
+            <div class="brand-subtitle">Foot Measurement System</div>
+          </div>
+        </div>
+        <div class="login-lang">
+          <select id="login-lang-select" onchange="setLoginLang(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="or">ଓଡ଼ିଆ</option>
+            <option value="te">తెలుగు</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-main">
+      <div class="login-grid">
+        <div class="login-hero">
+          <h1>AI-assisted foot measurement for leprosy care.</h1>
+          <p>Capture, measure and track footwear fit in the field &mdash; precise, fast, and built for frontline health workers.</p>
+          <div class="login-features">
+            <div class="feature-chip"><span class="fc-icon">📏</span> AI-assisted measurement</div>
+            <div class="feature-chip"><span class="fc-icon">📈</span> Track deformity progression</div>
+            <div class="feature-chip"><span class="fc-icon">🌐</span> Multi-language support</div>
+            <div class="feature-chip"><span class="fc-icon">🔒</span> Secure patient records</div>
+          </div>
+        </div>
+
+        <div class="login-card-wrap">
+          <div class="login-form">
+            <!-- Login section -->
+            <div id="login-section">
+              <h1 data-i18n="welcome_back">Welcome back!</h1>
+              <p class="sub"><span data-i18n="sign_in_desc">Sign in to</span> <strong>LEPRA</strong> <span data-i18n="sign_in_desc2">Foot Measurement System.</span><br><span data-i18n="get_started">Get started with your assessment.</span></p>
+              <form id="login-form">
+                <div class="field">
+                  <input type="text" name="username" data-i18n-ph="ph_username" placeholder="Username" autocomplete="username" required autofocus>
+                </div>
+                <div class="field" style="position:relative;">
+                  <input type="password" name="password" id="login-pw" data-i18n-ph="ph_password" placeholder="Password" autocomplete="current-password" required style="padding-right:42px;">
+                  <button type="button" class="pw-eye" data-target="login-pw" tabindex="-1" aria-label="Show password" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;padding:6px;font-size:16px;color:#666;">👁</button>
+                  <div class="caps-warn" data-for="login-pw" style="display:none;color:#c0392b;font-size:0.8rem;margin-top:4px;">⚠ Caps Lock is on</div>
+                </div>
+                <button class="login-btn" type="submit" data-i18n="login_btn">Login</button>
+                <div class="login-error" id="login-error"></div>
+              </form>
+              <div class="login-footer" data-i18n="login_footer">Automated Foot Measurement System</div>
+              <div style="margin-top:16px;text-align:center;font-size:0.88rem;">
+                <span data-i18n="agent_register_prompt">Field agent?</span>
+                <a href="/signup" style="color:#2563eb;font-weight:700;text-decoration:none;" data-i18n="agent_register_link">Register here</a>
+              </div>
+            </div>
+            <!-- Force password change section (shown after first login) -->
+            <div id="change-pw-section" style="display:none;">
+              <h1>Set New Password</h1>
+              <p class="sub" style="margin-bottom:20px;">For security, please set a new password before continuing.</p>
+              <form id="change-pw-form">
+                <div class="field" style="position:relative;">
+                  <input type="password" id="old-password" placeholder="Current password" required style="padding-right:42px;">
+                  <button type="button" class="pw-eye" data-target="old-password" tabindex="-1" aria-label="Show password" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;padding:6px;font-size:16px;color:#666;">👁</button>
+                  <div class="caps-warn" data-for="old-password" style="display:none;color:#c0392b;font-size:0.8rem;margin-top:4px;">⚠ Caps Lock is on</div>
+                </div>
+                <div class="field" style="position:relative;">
+                  <input type="password" id="new-password" placeholder="New password (min 8 characters)" required minlength="8" style="padding-right:42px;">
+                  <button type="button" class="pw-eye" data-target="new-password" tabindex="-1" aria-label="Show password" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;padding:6px;font-size:16px;color:#666;">👁</button>
+                  <div class="caps-warn" data-for="new-password" style="display:none;color:#c0392b;font-size:0.8rem;margin-top:4px;">⚠ Caps Lock is on</div>
+                </div>
+                <div class="field" style="position:relative;">
+                  <input type="password" id="new-password-confirm" placeholder="Confirm new password" required style="padding-right:42px;">
+                  <button type="button" class="pw-eye" data-target="new-password-confirm" tabindex="-1" aria-label="Show password" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;padding:6px;font-size:16px;color:#666;">👁</button>
+                  <div class="caps-warn" data-for="new-password-confirm" style="display:none;color:#c0392b;font-size:0.8rem;margin-top:4px;">⚠ Caps Lock is on</div>
+                </div>
+                <button class="login-btn" type="submit">Set Password & Continue</button>
+                <div class="login-error" id="change-pw-error"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer-bar">
+      <div class="site-footer-inner">
+        <div class="footer-shield">
+          <span class="fs-icon">🛡</span>
+          <div>
+            <div class="fs-title">Secure platform</div>
+            <div class="fs-note">Your data is encrypted and access is restricted to authorised health workers.</div>
+          </div>
+        </div>
+        <div class="footer-partner">
+          <img src="samples/iihmr_logo.png" onerror="this.style.display='none'" alt="IIHMR">
+          <span>Registered as LEPRA Society &middot; IIHMR Bangalore</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const LOGIN_T = {
+      en: { welcome_back:"Welcome back!", sign_in_desc:"Sign in to", sign_in_desc2:"Foot Measurement System.", get_started:"Get started with your assessment.", ph_username:"Username", ph_password:"Password", login_btn:"Login", login_footer:"Automated Foot Measurement System", invalid_creds:"Invalid credentials.", conn_error:"Connection error. Please try again." },
+      hi: { welcome_back:"वापस स्वागत है!", sign_in_desc:"साइन इन करें", sign_in_desc2:"पैर माप प्रणाली।", get_started:"अपना मूल्यांकन शुरू करें।", ph_username:"उपयोगकर्ता नाम", ph_password:"पासवर्ड", login_btn:"लॉगिन", login_footer:"स्वचालित पैर माप प्रणाली", invalid_creds:"अमान्य क्रेडेंशियल।", conn_error:"कनेक्शन त्रुटि। कृपया पुन: प्रयास करें।" },
+      or: { welcome_back:"ସ୍ୱାଗତ!", sign_in_desc:"ସାଇନ୍ ଇନ୍ କରନ୍ତୁ", sign_in_desc2:"ପାଦ ମାପ ସିଷ୍ଟମ।", get_started:"ଆପଣଙ୍କ ମୂଲ୍ୟାଙ୍କନ ଆରମ୍ଭ କରନ୍ତୁ।", ph_username:"ଉପଯୋଗକାରୀ ନାମ", ph_password:"ପାସୱାର୍ଡ", login_btn:"ଲଗଇନ୍", login_footer:"ସ୍ୱୟଂଚାଳିତ ପାଦ ମାପ ସିଷ୍ଟମ", invalid_creds:"ଅବୈଧ ପରିଚୟପତ୍ର।", conn_error:"ସଂଯୋଗ ତ୍ରୁଟି। ଦୟାକରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।" },
+      te: { welcome_back:"తిరిగి స్వాగతం!", sign_in_desc:"సైన్ ఇన్ చేయండి", sign_in_desc2:"పాద కొలత వ్యవస్థ.", get_started:"మీ అంచనాను ప్రారంభించండి.", ph_username:"వినియోగదారు పేరు", ph_password:"పాస్‌వర్డ్", login_btn:"లాగిన్", login_footer:"ఆటోమేటెడ్ పాద కొలత వ్యవస్థ", invalid_creds:"చెల్లని ఆధారాలు.", conn_error:"కనెక్షన్ లోపం. దయచేసి మళ్ళీ ప్రయత్నించండి." },
+      mr: { welcome_back:"पुन्हा स्वागत!", sign_in_desc:"साइन इन करा", sign_in_desc2:"पाय मोजमाप प्रणाली.", get_started:"तुमचे मूल्यांकन सुरू करा.", ph_username:"वापरकर्ता नाव", ph_password:"पासवर्ड", login_btn:"लॉगिन", login_footer:"स्वयंचलित पाय मोजमाप प्रणाली", invalid_creds:"अवैध क्रेडेन्शियल्स.", conn_error:"कनेक्शन त्रुटी. कृपया पुन्हा प्रयत्न करा." }
+    };
+    function setLoginLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (LOGIN_T[lang] && LOGIN_T[lang][k]) el.textContent = LOGIN_T[lang][k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const k = el.getAttribute('data-i18n-ph');
+        if (LOGIN_T[lang] && LOGIN_T[lang][k]) el.placeholder = LOGIN_T[lang][k];
+      });
+      localStorage.setItem('lepra-lang', lang);
+      document.getElementById('login-lang-select').value = lang;
+    }
+    (function(){ const s = localStorage.getItem('lepra-lang'); if (s && s !== 'en') setLoginLang(s); })();
+
+    // Eye toggle + caps-lock warning for all .pw-eye buttons / .caps-warn fields.
+    document.querySelectorAll('.pw-eye').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var inp = document.getElementById(btn.getAttribute('data-target'));
+        if (!inp) return;
+        var showing = inp.type === 'text';
+        inp.type = showing ? 'password' : 'text';
+        btn.textContent = showing ? '👁' : '🙈';
+        btn.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      });
+    });
+    document.querySelectorAll('.caps-warn').forEach(function(warn) {
+      var inp = document.getElementById(warn.getAttribute('data-for'));
+      if (!inp) return;
+      function check(e) {
+        var on = e.getModifierState && e.getModifierState('CapsLock');
+        warn.style.display = on ? 'block' : 'none';
+      }
+      inp.addEventListener('keydown', check);
+      inp.addEventListener('keyup', check);
+      inp.addEventListener('blur', function() { warn.style.display = 'none'; });
+    });
+
+    var _isLoggingIn = false;
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (_isLoggingIn) return;
+      _isLoggingIn = true;
+      const errEl = document.getElementById("login-error");
+      errEl.textContent = "";
+      const fd = new FormData(e.target);
+      const lang = localStorage.getItem('lepra-lang') || 'en';
+      try {
+        const r = await fetch("/api/login", { method: "POST", body: fd });
+        const d = await r.json();
+        if (r.ok) {
+          if (d.must_change_password) {
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("change-pw-section").style.display = "";
+          } else {
+            window.location.reload();
+            return; // Skip resetting _isLoggingIn — page is reloading.
+          }
+        } else {
+          errEl.textContent = (LOGIN_T[lang] && LOGIN_T[lang].invalid_creds) || d.detail || "Invalid credentials.";
+        }
+      } catch(e) {
+        errEl.textContent = (LOGIN_T[lang] && LOGIN_T[lang].conn_error) || "Connection error. Please try again.";
+      }
+      _isLoggingIn = false;
+    });
+
+    document.getElementById("change-pw-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const errEl = document.getElementById("change-pw-error");
+      errEl.textContent = "";
+      const np = document.getElementById("new-password").value;
+      const nc = document.getElementById("new-password-confirm").value;
+      if (np !== nc) { errEl.textContent = "Passwords do not match."; return; }
+      const fd = new FormData();
+      fd.append("old_password", document.getElementById("old-password").value);
+      fd.append("new_password", np);
+      try {
+        const r = await fetch("/api/change-password", { method: "POST", body: fd });
+        const d = await r.json();
+        if (r.ok) { window.location.reload(); }
+        else { errEl.textContent = d.detail || "Failed to change password."; }
+      } catch(e) { errEl.textContent = "Connection error."; }
+    });
+  </script>
+</body>
+</html>

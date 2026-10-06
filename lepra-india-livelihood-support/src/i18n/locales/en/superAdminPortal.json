@@ -1,0 +1,31 @@
+{
+  "roleBadge": "Super Admin",
+  "sessionDescriptionPrefix": "Signed in as",
+  "sessionDescriptionSuffix": "Full operational control across portals.",
+  "tabs": {
+    "dashboard": "Dashboard & Analytics",
+    "approvals": "Approvals & Recovery",
+    "reimbursement": "Reimbursement Tracking",
+    "welfare": "Welfare Schemes",
+    "agents": "Agent Monitoring"
+  },
+  "workspaceLabel": "Super Admin Portal",
+  "workspaceTitle": "Full Dashboard & System Control",
+  "workspaceSubtitle": "Live analytics, approvals oversight, recovery reports, and agent monitoring.",
+  "agentMonitoring": {
+    "title": "Agent Monitoring",
+    "tableHeaders": {
+      "agent": "Agent",
+      "submissions": "Submissions",
+      "approvedPlus": "Approved+",
+      "disbursedPlus": "Disbursed+"
+    },
+    "emptyState": "No submissions yet. Agents will appear here as they submit intake forms."
+  },
+  "exportExcel": {
+    "button": "Export to Excel",
+    "exporting": "Exporting…",
+    "tooltip": "Download all beneficiary data as an Excel (.xlsx) file",
+    "failed": "Could not export the Excel file. Please try again."
+  }
+}

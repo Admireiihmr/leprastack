@@ -1,0 +1,7 @@
+{
+  "operationalAlerts": "కార్యాచరణ హెచ్చరికలు ({{role}})",
+  "clear": "క్లియర్ చేయి",
+  "noActiveAlerts": "{{role}} కోసం ఎలాంటి యాక్టివ్ నోటిఫికేషన్ హెచ్చరికలు లేవు.",
+  "beneficiaryEnrollmentSmsSent": "లబ్ధిదారు నమోదు SMS పంపబడింది",
+  "markAsRead": "చదివినట్లు గుర్తించు"
+}

@@ -39,3 +39,51 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ============================================================
+# Monorepo: DIMPLE (lepra-foot-measurement-v2), Tele-Lepra
+# (Lepra-Tele), Livelihood (lepra-india-livelihood-support)
+# ============================================================
+
+# dependencies / virtualenvs (any depth)
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# build output (any depth)
+dist/
+build/
+.netlify/
+.vercel/
+
+# runtime logs (any depth)
+logs/
+*.log
+
+# secrets & credentials — never commit these
+.env
+.env.*
+!.env.example
+!**/.env.example
+**/secrets/
+**/serviceAccountKey.json
+**/*firebase-credentials*.json
+**/users.json
+Lepra SSL 2026/
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+
+# large / generated model + run data — not source, too large for git
+lepra-foot-measurement-v2/checkpoints/
+lepra-foot-measurement-v2/web_runs/
+lepra-foot-measurement-v2/foot images/
+lepra-foot-measurement-v2/dev/
+
+# local editor / tool config
+**/.claude/
+**/.vscode/

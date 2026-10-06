@@ -1,0 +1,7 @@
+{
+  "operationalAlerts": "Operational Alerts ({{role}})",
+  "clear": "Clear",
+  "noActiveAlerts": "No active notification alerts for {{role}}.",
+  "beneficiaryEnrollmentSmsSent": "Beneficiary Enrollment SMS Sent",
+  "markAsRead": "Mark as Read"
+}

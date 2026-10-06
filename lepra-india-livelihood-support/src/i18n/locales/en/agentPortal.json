@@ -1,0 +1,9 @@
+{
+  "roleBadge": "Field Agent",
+  "sessionTitle": "Agent Session",
+  "sessionDescriptionPrefix": "Signed in as",
+  "sessionDescriptionSuffix": "New intake submissions are securely sent to the Approval portal and visible to the Super Admin dashboard.",
+  "workspaceLabel": "Field Agent Workspace",
+  "workspaceTitle": "Secure Intake, Verification & Recovery",
+  "workspaceSubtitle": "Register beneficiaries, capture geotag & establishment proof, and log on-ground EMI collections."
+}

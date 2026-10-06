@@ -1,0 +1,20 @@
+{
+  "back": "ପଛକୁ",
+  "headerTitle": "ଏକ ଥର ପାଇଁ ଆଡମିନ ପ୍ରାୱିଜନିଂ",
+  "cardTitle": "Firebase ଖାତାକୁ ଭୂମିକା ପ୍ରଦାନ କରନ୍ତୁ",
+  "cardSubtitle": "ଅନୁମୋଦକ କିମ୍ବା ସୁପର ଆଡମିନ ପ୍ରବେଶ ଦେବା ପାଇଁ ଏହାକୁ କେବଳ ଥରେ ବ୍ୟବହାର କରନ୍ତୁ। ଖାତାଟି ପୂର୍ବରୁ Firebase Authentication ରେ ରହିବା ଆବଶ୍ୟକ।",
+  "howItWorksLabel": "ଏହା କିପରି କାମ କରେ:",
+  "howItWorksBefore": "ଆପଣ ଦେଇଥିବା ବିବରଣୀ ସହିତ ଆମେ ସାଇନ୍ ଇନ୍ କରୁ, ଭୂମିକା ରେକର୍ଡକୁ ଏଠାରେ ଲେଖୁ",
+  "howItWorksAfter": ", ଏବଂ ପୁଣି ସାଇନ୍ ଆଉଟ୍ କରିଦେଉ। ଏହି ଡିଭାଇସରେ କିଛି ସେଭ୍ ହୁଏ ନାହିଁ।",
+  "emailLabel": "ଇମେଲ୍",
+  "passwordLabel": "ପାସୱାର୍ଡ",
+  "displayNameLabel": "ପ୍ରଦର୍ଶିତ ନାମ",
+  "displayNamePlaceholder": "ଉଦାହରଣ ସ୍ୱରୂପ ପ୍ରୋଗ୍ରାମ ଅନୁମୋଦକ",
+  "roleToAssignLabel": "ପ୍ରଦାନ କରାଯିବା ଭୂମିକା",
+  "roleApprover": "ଅନୁମୋଦକ",
+  "roleSuperAdmin": "ସୁପର ଆଡମିନ",
+  "provisionedSuccess": "{{email}} କୁ \"{{role}}\" ଭାବରେ ସଫଳତାର ସହ ଯୋଡ଼ାଗଲା। ବର୍ତ୍ତମାନ ସେମାନେ ନିଜ ପୋର୍ଟାଲରୁ ଲଗଇନ୍ କରିପାରିବେ।",
+  "provisioningFailed": "ଭୂମିକା ପ୍ରଦାନ ବିଫଳ ହେଲା।",
+  "submitButton": "ଭୂମିକା ପ୍ରଦାନ କରନ୍ତୁ",
+  "footerNote": "ଖାତାଟି ପୂର୍ବରୁ Firebase Console → Authentication → Users ରେ ରହିବା ଆବଶ୍ୟକ।"
+}

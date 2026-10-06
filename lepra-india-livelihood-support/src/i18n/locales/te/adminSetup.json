@@ -1,0 +1,20 @@
+{
+  "back": "వెనుకకు",
+  "headerTitle": "వన్-టైమ్ అడ్మిన్ ప్రొవిజనింగ్",
+  "cardTitle": "Firebase ఖాతాకు పాత్రను కేటాయించండి",
+  "cardSubtitle": "ఆమోదకుడు లేదా సూపర్ అడ్మిన్ యాక్సెస్ ఇవ్వడానికి దీన్ని ఒక్కసారి మాత్రమే వాడండి. ఖాతా ముందుగానే Firebase Authentication లో ఉండి ఉండాలి.",
+  "howItWorksLabel": "ఇది ఎలా పనిచేస్తుంది:",
+  "howItWorksBefore": "మీరు ఇచ్చిన వివరాలతో మేము సైన్ ఇన్ అవుతాము, పాత్ర రికార్డును ఇక్కడ రాస్తాము",
+  "howItWorksAfter": ", ఆపై సైన్ అవుట్ అవుతాము. ఈ పరికరంలో ఏమీ నిల్వ చేయబడదు.",
+  "emailLabel": "ఇమెయిల్",
+  "passwordLabel": "పాస్‌వర్డ్",
+  "displayNameLabel": "ప్రదర్శన పేరు",
+  "displayNamePlaceholder": "ఉదా. ప్రోగ్రామ్ ఆమోదకుడు",
+  "roleToAssignLabel": "కేటాయించవలసిన పాత్ర",
+  "roleApprover": "ఆమోదకుడు",
+  "roleSuperAdmin": "సూపర్ అడ్మిన్",
+  "provisionedSuccess": "{{email}} ను \"{{role}}\" గా విజయవంతంగా జోడించారు. ఇప్పుడు వారు తమ పోర్టల్ నుండి లాగిన్ కావచ్చు.",
+  "provisioningFailed": "పాత్ర కేటాయింపు విఫలమైంది.",
+  "submitButton": "పాత్రను కేటాయించండి",
+  "footerNote": "ఖాతా ముందుగానే Firebase Console → Authentication → Users లో ఉండి ఉండాలి."
+}

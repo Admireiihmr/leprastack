@@ -1,0 +1,14 @@
+{
+  "back": "Back",
+  "secureLogin": "Secure Login",
+  "signupDisabled": "Sign-up is disabled for this portal. Credentials are provisioned by the program owner in Firebase.",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "loginButton": "Login",
+  "loginFailed": "Login failed.",
+  "roles": {
+    "agent": { "title": "Agent" },
+    "approver": { "title": "Approval Portal", "subtitle": "Review and approve beneficiary applications." },
+    "superadmin": { "title": "Super Admin Portal", "subtitle": "Full operational dashboard and system control." }
+  }
+}

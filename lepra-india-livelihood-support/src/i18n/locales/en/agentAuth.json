@@ -1,0 +1,22 @@
+{
+  "back": "Back",
+  "portalTitle": "Field Agent Portal",
+  "signInHeading": "Sign In",
+  "signUpHeading": "Create Agent Account",
+  "signInSubtitle": "Use your registered field agent credentials.",
+  "signUpSubtitle": "Self-register as a new field agent.",
+  "signInTab": "Sign In",
+  "signUpTab": "Sign Up",
+  "fullNameLabel": "Full Name",
+  "fullNamePlaceholder": "e.g. Rajesh Patra",
+  "emailLabel": "Email",
+  "emailPlaceholder": "agent@example.org",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Minimum 6 characters",
+  "nameRequiredError": "Please enter your full name.",
+  "passwordLengthError": "Password must be at least 6 characters.",
+  "authFailedError": "Authentication failed.",
+  "signInSubmit": "Sign In",
+  "signUpSubmit": "Create Account",
+  "sopNotice": "By continuing you agree to abide by LEPRA Society SOP guidelines."
+}

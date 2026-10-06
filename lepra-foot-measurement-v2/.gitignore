@@ -1,0 +1,37 @@
+# Model checkpoints (tracked via Git LFS, not plain git)
+checkpoints/
+
+# Run data and patient PHI
+web_runs/
+runs/
+patients/
+outputs/
+
+# Firebase credentials — NEVER commit
+*.json
+!heldout_manifest.json
+*adminsdk*.json
+*firebase*.json
+.env
+.env.*
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local dev only
+start_app.bat
+setup_firebase.py

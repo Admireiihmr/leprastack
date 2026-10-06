@@ -1,0 +1,7 @@
+{
+  "operationalAlerts": "परिचालन अलर्ट ({{role}})",
+  "clear": "साफ़ करें",
+  "noActiveAlerts": "{{role}} के लिए कोई सक्रिय सूचना अलर्ट नहीं है।",
+  "beneficiaryEnrollmentSmsSent": "लाभार्थी नामांकन एसएमएस भेजा गया",
+  "markAsRead": "पढ़ा हुआ चिह्नित करें"
+}

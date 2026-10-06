@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+html, body { overflow-x: hidden; }
+
+/* Bump the root size so all rem-based spacing & type scale up a touch — makes
+   the whole UI feel bigger and more comfortable without per-component edits. */
+html { font-size: 16.5px; }
+
+/* ========== DESIGN TOKENS — Vivid Medical Blue ==========
+   A confident, modern blue system: soft blue-tinted page, crisp white cards
+   with real elevation, and an energetic primary blue. Every interactive
+   surface lifts, glows, or presses. Status colors (green/amber/red) stay
+   reserved for data semantics only.
+*/
+:root {
+  /* Surfaces */
+  --bg:          #eef3fb;   /* soft blue-tinted page */
+  --bg-soft:     #dfe8f7;   /* deeper wash */
+  --surface:     #ffffff;   /* white cards */
+  --surface-2:   #f3f7ff;   /* hover / table stripes */
+
+  /* Borders */
+  --border:        #d3deef; /* blue-tinted silver */
+  --border-strong: #9db4d8; /* emphasis */
+  --border-cool:   #e2e9f5; /* soft inside-card border */
+
+  /* Text */
+  --text-ink:        #0f1d36; /* deep navy-slate — primary */
+  --text-ink-soft:   #3b4b6b; /* secondary */
+  --text-ink-muted:  #6a7896; /* labels */
+
+  /* Primary — vivid medical blue */
+  --brand:        #2563eb; /* blue-600 */
+  --brand-strong: #1d4ed8; /* hover / pressed */
+  --brand-soft:   #eff5ff; /* subtle tint background */
+  --brand-ring:   rgba(37, 99, 235, 0.30);
+
+  /* Accent — bright sky blue */
+  --accent:        #0ea5e9;
+  --accent-strong: #0284c7;
+  --accent-soft:   #e8f6fe;
+  --accent-ring:   rgba(14, 165, 233, 0.25);
+
+  /* Elevation — blue-tinted shadows for a premium glow */
+  --shadow-card:  0 1px 2px 0 rgb(30 58 138 / 0.06), 0 4px 12px -2px rgb(30 58 138 / 0.08);
+  --shadow-elev:  0 8px 20px -8px rgb(30 58 138 / 0.14), 0 3px 8px -2px rgb(15 23 42 / 0.06);
+  --shadow-hover: 0 12px 28px -10px rgb(30 58 138 / 0.18), 0 4px 10px -3px rgb(15 23 42 / 0.08);
+
+  /* Legacy aliases */
+  --neu-bg:           var(--bg);
+  --neu-bg-light:     var(--surface);
+  --neu-bg-dark:      var(--surface-2);
+  --card-bg:          var(--surface);
+  --card-border:      var(--border-cool);
+}
+
+.dark {
+  --bg:          #0a1426;
+  --bg-soft:     #0f1d33;
+  --surface:     #111e36;
+  --surface-2:   #18294a;
+
+  --border:        #233861;
+  --border-strong: #35528a;
+  --border-cool:   #1d2f52;
+
+  --text-ink:        #e8eefb;
+  --text-ink-soft:   #b7c4dd;
+  --text-ink-muted:  #8294b5;
+
+  --brand:        #60a5fa;
+  --brand-strong: #93c5fd;
+  --brand-soft:   rgba(96, 165, 250, 0.12);
+  --brand-ring:   rgba(96, 165, 250, 0.32);
+
+  --accent:        #38bdf8;
+  --accent-strong: #7dd3fc;
+  --accent-soft:   rgba(56, 189, 248, 0.12);
+  --accent-ring:   rgba(56, 189, 248, 0.28);
+
+  --shadow-card:  0 1px 2px 0 rgb(0 0 0 / 0.30), 0 4px 14px -2px rgb(0 0 0 / 0.40);
+  --shadow-elev:  0 10px 24px -8px rgb(0 0 0 / 0.35), 0 3px 8px -2px rgb(0 0 0 / 0.25);
+  --shadow-hover: 0 14px 30px -10px rgb(0 0 0 / 0.42), 0 4px 10px -3px rgb(0 0 0 / 0.30);
+
+  --neu-bg:           var(--bg);
+  --neu-bg-light:     var(--surface);
+  --neu-bg-dark:      var(--surface-2);
+  --card-bg:          var(--surface);
+  --card-border:      var(--border);
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica Neue, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-ink);
+  /* Subtle blue gradient wash for depth */
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgb(37 99 235 / 0.06), transparent 60%),
+    radial-gradient(1000px 500px at -10% 110%, rgb(14 165 233 / 0.05), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+:lang(hi), :lang(mr), :lang(te), :lang(kn), :lang(or) {
+  font-feature-settings: 'kern', 'liga';
+}
+
+/* ========== SURFACES ========== */
+.neu-surface { background: var(--surface); }
+
+.neu-raised {
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+}
+.neu-raised:hover {
+  box-shadow: var(--shadow-elev);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.neu-raised-sm {
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.neu-inset {
+  background: var(--surface-2);
+  border: 1px solid var(--border-cool);
+  border-radius: 12px;
+}
+
+.neu-pressable { transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease; cursor: pointer; }
+.neu-pressable:hover { border-color: var(--brand); background: var(--surface-2); box-shadow: var(--shadow-card); transform: translateY(-1px); }
+.neu-pressable:active { transform: translateY(0); }
+
+/* ========== INPUTS ========== */
+.neu-input,
+.input {
+  @apply w-full text-[15px] rounded-xl px-3.5 py-3 outline-none transition;
+  color: var(--text-ink);
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+}
+.neu-input::placeholder,
+.input::placeholder { color: var(--text-ink-muted); }
+.neu-input:hover,
+.input:hover { border-color: var(--border-strong); }
+.neu-input:focus,
+.input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--brand-ring);
+}
+
+.neu-label,
+.label {
+  @apply block text-[12px] font-semibold tracking-[0.10em] uppercase mb-2;
+  color: var(--text-ink-muted);
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--brand-ring);
+}
+.btn:active:not(:disabled) { transform: translateY(1px) scale(0.99); }
+
+.btn-primary {
+  @apply btn text-white;
+  background: var(--brand);
+  box-shadow: 0 2px 8px -2px var(--brand-ring);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -6px var(--brand-ring);
+}
+
+.btn-secondary {
+  @apply btn;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-cool);
+}
+.btn-secondary:hover:not(:disabled) { background: #d6eefb; transform: translateY(-1px); box-shadow: var(--shadow-card); }
+
+.btn-ghost {
+  @apply btn;
+  color: var(--text-ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+}
+.btn-ghost:hover:not(:disabled) { background: var(--surface-2); border-color: var(--brand); color: var(--brand); transform: translateY(-1px); box-shadow: var(--shadow-card); }
+
+.btn-danger {
+  @apply btn text-white;
+  background: #dc2626;
+  box-shadow: 0 2px 8px -2px rgb(220 38 38 / 0.4);
+}
+.btn-danger:hover:not(:disabled) { background: #b91c1c; transform: translateY(-1px); box-shadow: 0 10px 22px -6px rgb(220 38 38 / 0.45); }
+
+/* Same recipe as .btn-primary/.btn-ghost above, kept as separate classes
+   since callers (Login.jsx form submit, Layout.jsx sign-out) rely on the
+   neu-btn-* names, but padding/radius/type now match the rest of the app
+   instead of running a second button language. */
+.neu-btn-primary {
+  @apply inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white;
+  background: var(--brand);
+  box-shadow: 0 2px 8px -2px var(--brand-ring);
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.neu-btn-primary:hover:not(:disabled) { background: var(--brand-strong); transform: translateY(-1px); box-shadow: 0 10px 22px -6px var(--brand-ring); }
+.neu-btn-primary:active:not(:disabled) { transform: translateY(1px) scale(0.99); }
+.neu-btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--brand-ring);
+}
+.neu-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.neu-btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold;
+  color: var(--text-ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.neu-btn-ghost:hover:not(:disabled) { background: var(--surface-2); border-color: var(--brand); color: var(--brand); transform: translateY(-1px); box-shadow: var(--shadow-card); }
+
+.neu-icon {
+  @apply inline-flex items-center justify-center rounded-lg;
+  background: var(--surface-2);
+  border: 1px solid var(--border-cool);
+  color: var(--text-ink-soft);
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+.neu-icon:hover { background: var(--brand-soft); color: var(--brand); transform: translateY(-1px); }
+
+/* ========== CARDS ========== */
+.card {
+  @apply rounded-2xl p-5 sm:p-6;
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  box-shadow: var(--shadow-card);
+  color: var(--text-ink);
+  transition: background-color 200ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-elev);
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+
+.card-elev {
+  @apply rounded-2xl p-5 sm:p-6 md:p-7;
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  box-shadow: var(--shadow-card);
+  color: var(--text-ink);
+  transition: box-shadow 240ms ease, transform 240ms ease, border-color 240ms ease;
+}
+.card-elev:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border);
+  transform: translateY(-3px);
+}
+
+/* Accent card — sky-blue left border for informational sections */
+.card-accent {
+  @apply rounded-2xl p-5 sm:p-6;
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  border-left: 4px solid var(--accent);
+  box-shadow: var(--shadow-card);
+  color: var(--text-ink);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+.card-accent:hover { box-shadow: var(--shadow-elev); transform: translateY(-2px); }
+
+/* Brand card — primary blue left border for active sections */
+.card-brand {
+  @apply rounded-2xl p-5 sm:p-6;
+  background: var(--surface);
+  border: 1px solid var(--border-cool);
+  border-left: 4px solid var(--brand);
+  box-shadow: var(--shadow-card);
+  color: var(--text-ink);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+.card-brand:hover { box-shadow: var(--shadow-elev); transform: translateY(-2px); }
+
+.section-title {
+  @apply text-[12px] font-bold tracking-[0.12em] uppercase mb-3 inline-flex items-center gap-2;
+  color: var(--brand);
+}
+.section-title::before {
+  content: '';
+  @apply inline-block w-1 h-3.5 rounded-full;
+  background: var(--brand);
+}
+
+/* Text helpers */
+.t-ink   { color: var(--text-ink); }
+.t-soft  { color: var(--text-ink-soft); }
+.t-muted { color: var(--text-ink-muted); }
+
+/* Reusable interactive lift — drop onto any clickable container */
+.hover-lift { transition: transform 200ms ease, box-shadow 200ms ease; }
+.hover-lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-elev); }
+
+/* ========== STATUS PILLS — data semantics only ========== */
+.pill { @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11.5px] font-semibold; transition: transform 140ms ease, box-shadow 140ms ease; }
+.pill::before { content: ''; @apply inline-block w-1.5 h-1.5 rounded-full; }
+.pill-green { @apply pill bg-emerald-50 text-emerald-800 ring-1 ring-inset ring-emerald-200; }
+.dark .pill-green { @apply bg-emerald-900/30 text-emerald-300 ring-emerald-700/50; }
+.pill-green::before { @apply bg-emerald-600; }
+.pill-amber { @apply pill bg-amber-50 text-amber-800 ring-1 ring-inset ring-amber-200; }
+.dark .pill-amber { @apply bg-amber-900/30 text-amber-200 ring-amber-700/50; }
+.pill-amber::before { @apply bg-amber-500; }
+.pill-red { @apply pill bg-red-50 text-red-700 ring-1 ring-inset ring-red-200; }
+.dark .pill-red { @apply bg-red-900/30 text-red-300 ring-red-700/50; }
+.pill-red::before { @apply bg-red-500; }
+.pill-blue { @apply pill bg-sky-50 text-sky-800 ring-1 ring-inset ring-sky-200; }
+.dark .pill-blue { @apply bg-sky-900/30 text-sky-300 ring-sky-700/50; }
+.pill-blue::before { @apply bg-sky-500; }
+.pill-brand {
+  @apply pill text-white;
+  background: var(--brand);
+  box-shadow: 0 2px 6px -2px var(--brand-ring);
+}
+.pill-brand::before { background: rgba(255,255,255,0.85); }
+.pill-ink { @apply pill bg-ink-100 text-ink-700 ring-1 ring-inset ring-ink-200; }
+.dark .pill-ink { @apply bg-ink-800 text-ink-200 ring-ink-700; }
+.pill-ink::before { @apply bg-ink-400; }
+
+/* ========== WIZARD STEPS ========== */
+.step-chip { @apply inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap border; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+.step-chip-active { @apply step-chip text-white; background: var(--brand); border-color: var(--brand); box-shadow: 0 4px 12px -4px var(--brand-ring); }
+.step-chip-done {
+  @apply step-chip;
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+  border-color: var(--border);
+}
+.step-chip-todo { @apply step-chip; background: var(--surface); color: var(--text-ink-muted); border-color: var(--border-cool); }
+.step-chip-todo:hover, .step-chip-done:hover { transform: translateY(-1px); box-shadow: var(--shadow-card); border-color: var(--brand); }
+
+/* ========== BRAND MARK + LINK ========== */
+.brand-mark {
+  @apply inline-flex items-center justify-center w-9 h-9 rounded-xl text-white;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  box-shadow: 0 4px 12px -3px var(--brand-ring);
+}
+.link { color: var(--brand); font-weight: 500; transition: color 140ms ease; }
+.link:hover { color: var(--brand-strong); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ========== KPI TILE ACCENTS ========== */
+.kpi-tile-brand { border-left: 4px solid var(--brand); }
+.kpi-tile-accent { border-left: 4px solid var(--accent); }
+.kpi-tile-neutral { border-left: 4px solid var(--border-strong); }
+
+/* ========== ANIMATIONS ========== */
+/* Gentle entrance fade so pages feel alive without being busy. */
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.anim-fade-up { animation: fade-up 360ms ease both; }
+.anim-fade-in { animation: fade-up 300ms ease both; }
+.anim-stagger > * { animation: fade-up 360ms ease both; }
+.anim-stagger > *:nth-child(2) { animation-delay: 60ms; }
+.anim-stagger > *:nth-child(3) { animation-delay: 120ms; }
+.anim-stagger > *:nth-child(4) { animation-delay: 180ms; }
+.anim-stagger > *:nth-child(5) { animation-delay: 240ms; }
+.anim-stagger > *:nth-child(6) { animation-delay: 300ms; }
+
+/* Decorative looping animations stay off for a calm clinical feel. */
+.anim-float, .anim-float-slow, .anim-drift, .anim-pulse-glow,
+.anim-float-card, .anim-float-hero, .shimmer-text {
+  animation: none !important;
+}
+.anim-fade-right, .anim-slide-in-right, .anim-float-in {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  .card:hover, .card-elev:hover, .neu-raised:hover, .btn:hover, .hover-lift:hover { transform: none !important; }
+}

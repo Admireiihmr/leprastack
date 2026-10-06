@@ -1,0 +1,6 @@
+{
+  "name": "Lepra India Livelihood Support",
+  "description": "Livelihood support registration, eligibility approval, interest-free EMI recovery tracking, and field agent geo-tagged business verification portal for Lepra India.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

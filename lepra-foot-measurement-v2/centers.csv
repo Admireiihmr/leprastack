@@ -1,0 +1,72 @@
+SNo,State,District,Project / Center Name,Project / Center Code
+1,Andhra Pradesh,Krishna,ZLSC Pedana,LEPAP01
+2,Andhra Pradesh,West Godavari,ZLSC Nuzividu,LEPAP02
+3,Andhra Pradesh,Guntur,ZLSC Tenali,LEPAP03
+4,Andhra Pradesh,6 Districts,Mobile Footwear Unit,LEPAP04
+5,Andhra Pradesh,Krishna,ZLRC Krishna,LEPAP05
+6,Andhra Pradesh,West Godavari,ZLRC Eluru,LEPAP06
+7,Andhra Pradesh,Krishna,ZLSC Gampalagudem,LEPAP07
+8,Andhra Pradesh,Krishna,ZLSC Jaggiahpeta,LEPAP08
+9,Andhra Pradesh,Vishakhapatnam,ZLRC Vishakhapatnam,LEPAP09
+10,Andhra Pradesh,Vizianagaram,ZLRC Vizianagarm,LEPAP10
+11,Bihar,Samastipur,Jagruthi,LEPBH01
+12,Bihar,6 Districts,Mobile Footwear Van,LEPBH02
+13,Bihar,All Districts,NDTRU Bihar,LEPBH03
+14,Bihar,Munger,PLF,LEPBH04
+15,Bihar,Jamui,ZLRC JAMUI,LEPBH05
+16,Bihar,Kaimoor,ZLRC Kaimoor,LEPBH06
+17,Bihar,Raxaul,ZLRC Little Flower,LEPBH07
+18,Bihar,Jamui,ZLRC Jhajha,LEPBH08
+19,Delhi,West Delhi,ZLRC West Delhi,LEPDL01
+20,Delhi,Delhi,Rotary Delhi Project,LEPDL02
+21,Delhi,South Delhi,ZLRC IGH,LEPDL03
+22,Jharkhand,Dhanbad,ZLRC SPARSH TATA,LEPJH01
+23,Jharkhand,Ranchi,ZLRC Mankind,LEPJH02
+24,Madhya Pradesh,All Districts,NTDRU MP,LEPMP01
+25,Madhya Pradesh,Barwani,ZLRC Sendhwa,LEPMP02
+26,Madhya Pradesh,Khargone,ZLRC SJLC,LEPMP03
+27,Madhya Pradesh,Indore,ZLRC Indore,LEPMP04
+28,Madhya Pradesh,Chattarpur,Samarth,LEPMP05
+29,Madhya Pradesh,Alirajpur,ZLRC Alirajpur,LEPMP06
+30,Maharashtra,Chandrapur,ZLSC Chandrapur,LEPMH01
+31,Odisha,Koraput,SWABHIMAN ACF (2.0) (ZLRC),LEPOD01
+32,Odisha,Koraput,ZLSC OLD SDH JEYPORE,LEPOD02
+33,Odisha,Koraput,ZLSC RABANAGUDA CHC,LEPOD03
+34,Odisha,Koraput,ZLSC Kotpad CHC,LEPOD04
+35,Odisha,Koraput,ZLSC Borigumma CHC,LEPOD05
+36,Odisha,Koraput,ZLSC Boipariguda CHC,LEPOD06
+37,Odisha,Nabrangpur,ZNLCCC Nabarangpur DHH (ZLRC),LEPOD07
+38,Odisha,Nabrangpur,ZLSC Kasagumunda CHC,LEPOD08
+39,Odisha,Nabrangpur,ZLSC Sanmasigaon CHC,LEPOD09
+40,Odisha,Nabrangpur,ZLSC Pujariguda CHC,LEPOD10
+41,Odisha,Kalahandi,ZLSC District Head Quarter Hospital,LEPOD11
+42,Odisha,Kalahandi,ZLSC Junagarh CHC,LEPOD12
+43,Odisha,Kalahandi,ZLSC Dharamgarh SDH,LEPOD13
+44,Odisha,Kalahandi,ZLSC Kalampur CHC,LEPOD14
+45,Odisha,Nuapada,ZLSC Nuapada -DHH,LEPOD15
+46,Odisha,Nuapada,ZLSC Khariar CHC,LEPOD16
+47,Odisha,Nuapada,ZLSC Sinapali CHC,LEPOD17
+48,Odisha,Nuapada,ZLSC Boden CHC,LEPOD18
+49,Odisha,Bargarh,ZLSC Bargarh DHH,LEPOD19
+50,Odisha,Bargarh,ZLSC Padampur SDH,LEPOD20
+51,Odisha,Bargarh,ZLSC Paikmal CHC,LEPOD21
+52,Odisha,Bargarh,ZLSC Jharbandh CHC,LEPOD22
+53,Odisha,Sonepur,ZSLCCC Sonepur (ZLRC),LEPOD23
+54,Odisha,Sonepur,ZLSC Bikna CHC,LEPOD24
+55,Odisha,Sonepur,ZLSC Dungripali CHC,LEPOD25
+56,Odisha,Puri,ZLSC Puri,LFPOD26
+57,Odisha,Kanas,ZLSC Kanas,LEPOD27
+58,Odisha,Nayagarh,ZLSC Nayagarh,LEPOD28
+59,Odisha,Khandapada,ZLSC Khandapada,LEPOD29
+60,Odisha,6 Districts,TRU/SRS,LEPOD30
+61,Odisha,Mayurbhanj,ZLRC Mayurbhanj,LEPOD31
+62,Chhattisgarh,Bastar,ZLRC Jagdalpur,LEPCG01
+63,Telangana,6 Districts,Mobile Footwear Unit,LEPTS01
+64,Telangana,Medchal,ZLRC BPHRC,LEPTS02
+65,Telangana,Hyderabad,ZLSC INSSIL,LEPTS03
+66,Telangana,Komarambheem,ZLRC Kagaznagar,LEPTS04
+67,Telangana,Komarambheem,ZLSC Asifabad,LEPTS05
+68,Telangana,Mahabubnagar,ZLRC Mahabubnagar,LEPTS06
+69,Telangana,Hyderabad,ZLRC Nallakunta,LEPTS07
+70,Telangana,Nirmal,ZLRC Nirmal,LEPTS08
+71,Telangana,Ranga Reddy,ZLRC Ranga Reddy,LEPTS10

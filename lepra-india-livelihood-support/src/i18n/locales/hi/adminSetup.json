@@ -1,0 +1,20 @@
+{
+  "back": "वापस",
+  "headerTitle": "एकबारीय एडमिन प्रावधान",
+  "cardTitle": "Firebase खाते को भूमिका सौंपें",
+  "cardSubtitle": "अप्रूवर या सुपर एडमिन एक्सेस देने के लिए इसका एक बार उपयोग करें। खाता पहले से Firebase Authentication में मौजूद होना चाहिए।",
+  "howItWorksLabel": "यह कैसे काम करता है:",
+  "howItWorksBefore": "हम आपके द्वारा दी गई जानकारी से साइन इन करते हैं, भूमिका का रिकॉर्ड यहां दर्ज करते हैं",
+  "howItWorksAfter": ", और फिर साइन आउट कर देते हैं। इस डिवाइस पर कुछ भी सहेजा नहीं जाता।",
+  "emailLabel": "ईमेल",
+  "passwordLabel": "पासवर्ड",
+  "displayNameLabel": "प्रदर्शित नाम",
+  "displayNamePlaceholder": "जैसे प्रोग्राम अप्रूवर",
+  "roleToAssignLabel": "सौंपी जाने वाली भूमिका",
+  "roleApprover": "अप्रूवर",
+  "roleSuperAdmin": "सुपर एडमिन",
+  "provisionedSuccess": "{{email}} को \"{{role}}\" के रूप में सफलतापूर्वक जोड़ा गया। अब वे अपने पोर्टल से लॉगिन कर सकते हैं।",
+  "provisioningFailed": "भूमिका निर्धारण असफल रहा।",
+  "submitButton": "भूमिका निर्धारित करें",
+  "footerNote": "खाता पहले से Firebase Console → Authentication → Users में मौजूद होना चाहिए।"
+}

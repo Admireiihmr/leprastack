@@ -1,0 +1,22 @@
+{
+  "back": "ପଛକୁ",
+  "portalTitle": "ଫିଲ୍ଡ ଏଜେଣ୍ଟ ପୋର୍ଟାଲ",
+  "signInHeading": "ସାଇନ୍ ଇନ୍ କରନ୍ତୁ",
+  "signUpHeading": "ଏଜେଣ୍ଟ ଖାତା ତିଆରି କରନ୍ତୁ",
+  "signInSubtitle": "ଆପଣଙ୍କ ପଞ୍ଜୀକୃତ ଫିଲ୍ଡ ଏଜେଣ୍ଟ ଲଗଇନ୍ ବିବରଣୀ ବ୍ୟବହାର କରନ୍ତୁ।",
+  "signUpSubtitle": "ନୂଆ ଫିଲ୍ଡ ଏଜେଣ୍ଟ ଭାବରେ ନିଜେ ପଞ୍ଜୀକରଣ କରନ୍ତୁ।",
+  "signInTab": "ସାଇନ୍ ଇନ୍",
+  "signUpTab": "ସାଇନ୍ ଅପ୍",
+  "fullNameLabel": "ପୂରା ନାମ",
+  "fullNamePlaceholder": "ଉଦାହରଣ ସ୍ୱରୂପ ରାଜେଶ ପାତ୍ର",
+  "emailLabel": "ଇମେଲ୍",
+  "emailPlaceholder": "agent@example.org",
+  "passwordLabel": "ପାସୱାର୍ଡ",
+  "passwordPlaceholder": "ସର୍ବନିମ୍ନ 6 ଅକ୍ଷର",
+  "nameRequiredError": "ଦୟାକରି ଆପଣଙ୍କର ପୂରା ନାମ ଲେଖନ୍ତୁ।",
+  "passwordLengthError": "ପାସୱାର୍ଡ ଅତି କମରେ 6 ଅକ୍ଷରର ହେବା ଆବଶ୍ୟକ।",
+  "authFailedError": "ପ୍ରମାଣୀକରଣ ବିଫଳ ହେଲା।",
+  "signInSubmit": "ସାଇନ୍ ଇନ୍ କରନ୍ତୁ",
+  "signUpSubmit": "ଖାତା ତିଆରି କରନ୍ତୁ",
+  "sopNotice": "ଆଗକୁ ବଢ଼ିବା ଦ୍ୱାରା ଆପଣ LEPRA Society ର SOP ନିର୍ଦ୍ଦେଶାବଳୀ ପାଳନ କରିବାକୁ ସହମତ ହେଉଛନ୍ତି।"
+}

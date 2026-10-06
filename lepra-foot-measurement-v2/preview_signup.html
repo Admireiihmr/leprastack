@@ -1,0 +1,241 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEPRA &mdash; Agent Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .login-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url('samples/login-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .login-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.55); pointer-events: none; }
+
+    .login-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+    }
+    .login-header-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand-mark-group { display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9); color: #fff; font-size: 18px;
+      box-shadow: 0 4px 12px -3px rgba(37,99,235,0.30);
+    }
+    .brand-title { font-weight: 800; font-size: 0.92rem; color: #0f1d36; letter-spacing: 0.02em; }
+    .brand-subtitle { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: #6a7896; }
+
+    .login-main {
+      position: relative; z-index: 10; flex: 1; width: 100%;
+      display: flex; align-items: center; justify-content: center; padding: 32px 24px;
+    }
+
+    .site-footer-bar {
+      position: relative; z-index: 10;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+    }
+    .site-footer-inner {
+      max-width: 1400px; margin: 0 auto; padding: 16px 24px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .footer-shield { display: flex; align-items: flex-start; gap: 10px; }
+    .footer-shield .fs-icon {
+      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(37,99,235,0.10); color: #2563eb; font-size: 14px;
+    }
+    .footer-shield .fs-title { font-size: 0.78rem; font-weight: 700; color: #0f1d36; }
+    .footer-shield .fs-note { font-size: 0.72rem; color: #6a7896; margin-top: 2px; max-width: 380px; line-height: 1.4; }
+    .footer-partner { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: #6a7896; }
+    .footer-partner img { height: 28px; border-radius: 6px; opacity: 0.92; }
+
+    .signup-card { width: 100%; max-width: 480px; background: #fff; border: 1px solid #d3deef; border-radius: 20px; padding: 40px 36px; box-shadow: 0 12px 32px -10px rgba(30,58,138,0.28), 0 4px 12px -4px rgba(15,23,42,0.10); }
+    .signup-card h1 { font-size: 1.6rem; font-weight: 900; color: #0f1d36; margin-bottom: 4px; }
+    .signup-card .sub { font-size: 0.88rem; color: #6a7896; margin-bottom: 28px; }
+    .signup-card .sub strong { color: #2563eb; font-weight: 700; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-row label { font-size: 0.82rem; font-weight: 700; color: #6a7896; margin-bottom: 4px; display: block; }
+    .form-row input, .form-row select { width: 100%; padding: 11px 16px; border: 1px solid #d3deef; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0f1d36; background: #fff; }
+    .form-row input:focus, .form-row select:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,0.20); }
+    .signup-btn { width: 100%; padding: 13px; border: 0; border-radius: 12px; background: #2563eb; color: #fff; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 8px; box-shadow: 0 4px 14px -4px rgba(37,99,235,0.30); transition: background 0.16s, transform 0.16s, box-shadow 0.16s; }
+    .signup-btn:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 12px 26px -8px rgba(37,99,235,0.30); }
+    .msg { font-size: 0.85rem; font-weight: 600; margin-top: 14px; min-height: 20px; text-align: center; }
+    .msg.error { color: #e53e3e; }
+    .msg.ok { color: #16a34a; }
+    .back-link { margin-top: 18px; text-align: center; font-size: 0.85rem; }
+    .back-link a { color: #2563eb; font-weight: 700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-overlay"></div>
+
+    <header class="login-header">
+      <div class="login-header-inner">
+        <div class="brand-mark-group">
+          <span class="brand-mark">🦶</span>
+          <div>
+            <div class="brand-title">LEPRA</div>
+            <div class="brand-subtitle">Foot Measurement System</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-main">
+  <div class="signup-card">
+    <h1>Agent Registration</h1>
+    <p class="sub">Create your account to start uploading foot images to <strong>LEPRA</strong>.</p>
+    <form id="signup-form">
+      <div class="form-row">
+        <div><label>Full Name *</label><input type="text" name="name" required></div>
+        <div><label>Phone</label><input type="tel" name="phone" maxlength="10" inputmode="numeric" pattern="[0-9]{10}" placeholder="10 digits" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)"></div>
+      </div>
+      <div class="form-row full">
+        <div><label>Email</label><input type="email" name="email"></div>
+      </div>
+      <div class="form-row">
+        <div><label>State</label>
+          <select name="state" id="signup-state" onchange="updateCenters()">
+            <option value="">Select state</option>
+          </select>
+        </div>
+        <div><label>Center</label>
+          <select name="center" id="signup-center">
+            <option value="">Select center</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div><label>Username *</label><input type="text" name="username" required></div>
+        <div style="position:relative;">
+          <label>Password *</label>
+          <input type="password" name="password" id="signup-pw" required minlength="4" style="padding-right:42px;">
+          <button type="button" class="pw-eye" data-target="signup-pw" tabindex="-1" aria-label="Show password" style="position:absolute;right:8px;top:32px;background:none;border:0;cursor:pointer;padding:6px;font-size:16px;color:#666;">👁</button>
+          <div class="caps-warn" data-for="signup-pw" style="display:none;color:#c0392b;font-size:0.8rem;margin-top:4px;">⚠ Caps Lock is on</div>
+        </div>
+      </div>
+      <button class="signup-btn" type="submit">Create Account</button>
+      <div class="msg" id="signup-msg"></div>
+    </form>
+    <div class="back-link"><a href="/">&larr; Back to Login</a></div>
+  </div>
+    </main>
+
+    <footer class="site-footer-bar">
+      <div class="site-footer-inner">
+        <div class="footer-shield">
+          <span class="fs-icon">🛡</span>
+          <div>
+            <div class="fs-title">Secure platform</div>
+            <div class="fs-note">Your data is encrypted and access is restricted to authorised health workers.</div>
+          </div>
+        </div>
+        <div class="footer-partner">
+          <img src="samples/iihmr_logo.png" onerror="this.style.display='none'" alt="IIHMR">
+          <span>Registered as LEPRA Society &middot; IIHMR Bangalore</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const stateSelect = document.getElementById('signup-state');
+    const centerSelect = document.getElementById('signup-center');
+    let centersMap = {};
+    (async function loadSignupOptions() {
+      try {
+        const r = await fetch('/api/signup-options');
+        if (!r.ok) return;
+        const data = await r.json();
+        centersMap = data.centers || {};
+        (data.states || []).forEach(function(s) {
+          var o = document.createElement('option');
+          o.value = s; o.textContent = s;
+          stateSelect.appendChild(o);
+        });
+      } catch(e) { console.warn('loadSignupOptions error:', e); }
+    })();
+    function updateCenters() {
+      const st = stateSelect.value;
+      centerSelect.innerHTML = '<option value="">Select center</option>';
+      (centersMap[st] || []).forEach(function(c) {
+        const o = document.createElement('option');
+        o.value = c; o.textContent = c;
+        centerSelect.appendChild(o);
+      });
+    }
+    // Eye toggle + caps-lock warning for the signup password field.
+    document.querySelectorAll('.pw-eye').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var inp = document.getElementById(btn.getAttribute('data-target'));
+        if (!inp) return;
+        var showing = inp.type === 'text';
+        inp.type = showing ? 'password' : 'text';
+        btn.textContent = showing ? '👁' : '🙈';
+        btn.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      });
+    });
+    document.querySelectorAll('.caps-warn').forEach(function(warn) {
+      var inp = document.getElementById(warn.getAttribute('data-for'));
+      if (!inp) return;
+      function check(e) {
+        var on = e.getModifierState && e.getModifierState('CapsLock');
+        warn.style.display = on ? 'block' : 'none';
+      }
+      inp.addEventListener('keydown', check);
+      inp.addEventListener('keyup', check);
+      inp.addEventListener('blur', function() { warn.style.display = 'none'; });
+    });
+
+    var _isSigningUp = false;
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (_isSigningUp) return;
+      _isSigningUp = true;
+      const msgEl = document.getElementById('signup-msg');
+      msgEl.textContent = ''; msgEl.className = 'msg';
+      const fd = new FormData(e.target);
+      try {
+        const r = await fetch('/api/signup', { method: 'POST', body: fd });
+        const d = await r.json();
+        if (r.ok) {
+          msgEl.textContent = d.message || 'Account created! You can now log in.';
+          msgEl.className = 'msg ok';
+          e.target.reset();
+        } else {
+          msgEl.textContent = d.detail || 'Signup failed.';
+          msgEl.className = 'msg error';
+        }
+      } catch(e) {
+        msgEl.textContent = 'Connection error. Please try again.';
+        msgEl.className = 'msg error';
+      }
+      _isSigningUp = false;
+    });
+  </script>
+</body>
+</html>

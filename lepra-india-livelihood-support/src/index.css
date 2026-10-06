@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #115e59;
+  --color-brand-accent: #0284c7;
+  --color-brand-bg: #ffffff;
+  --color-brand-text: #171717;
+  --font-sans: "Geist", Arial, Helvetica, sans-serif;
+
+  /* The auth screens' elevation (AdminLogin/AdminSetup/AgentAuth/Landing) —
+     promoted to a shared `shadow-card` utility so dashboard card containers
+     can use the same soft, layered lift instead of Tailwind's flatter
+     default shadow-md/shadow-lg. */
+  --shadow-card: 0 1px 2px rgba(16,24,40,0.04), 0 16px 40px -16px rgba(16,24,40,0.18);
+}
+
+/* Matches the Lepra Stack portal shell this app is embedded in — the portal
+   loads Geist via next/font/google and actually renders it (fixed a prior
+   bug where its own globals.css fell back to Arial). Loaded from Google
+   Fonts in index.html since this is a separate Vite app with no access to
+   the portal's self-hosted font files. */
+body {
+  background-color: #ffffff;
+  color: #171717;
+  font-family: "Geist", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom styled scrollbars for high density tables and panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

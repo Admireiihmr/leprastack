@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -12,15 +13,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  /* Stop mobile browsers (Android Chrome, older iOS Safari) from silently
+     boosting font sizes on text-heavy layouts — it makes the same page
+     render at different type sizes per-device, which reads as "the font
+     isn't consistent" even though the CSS never changed. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Use the self-hosted Geist font loaded in layout.tsx so type renders
+     identically on every device. Falling back to system Arial/Helvetica
+     here (instead of just using the Geist variable) meant every platform
+     silently substituted its own default sans-serif (Roboto on Android,
+     San Francisco-derived on iOS, etc.) — that inconsistency, not any
+     mobile-specific CSS, was what made the font look "different on
+     mobile". */
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }

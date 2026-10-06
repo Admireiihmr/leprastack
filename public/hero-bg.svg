@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="130" />
+    </filter>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fdfa" />
+      <stop offset="55%" stop-color="#f0f9ff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <pattern id="dots" width="42" height="42" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#0f766e" opacity="0.10" />
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#base)" />
+  <rect width="1920" height="1080" fill="url(#dots)" />
+
+  <circle cx="260" cy="200" r="320" fill="#5eead4" opacity="0.35" filter="url(#blur1)" />
+  <circle cx="1740" cy="260" r="380" fill="#7dd3fc" opacity="0.35" filter="url(#blur1)" />
+  <circle cx="960" cy="1020" r="440" fill="#99f6e4" opacity="0.28" filter="url(#blur1)" />
+
+  <g stroke="#0d9488" stroke-width="6" fill="none" opacity="0.14" stroke-linecap="round">
+    <g transform="translate(150,760) scale(3)">
+      <path d="M12 20.5v-7" />
+      <path d="M12 13.5c0-3.6-2.6-6.2-6.2-6.2 0 3.6 2.6 6.2 6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M12 10.3c0-3.6 2.6-6.2 6.2-6.2 0 3.6-2.6 6.2-6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M4.5 20.5c2.1-2.6 4.7-3.6 7.5-3.6s5.4 1 7.5 3.6" />
+    </g>
+    <g transform="translate(1620,800) scale(3.6) rotate(12)">
+      <path d="M12 20.5v-7" />
+      <path d="M12 13.5c0-3.6-2.6-6.2-6.2-6.2 0 3.6 2.6 6.2 6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M12 10.3c0-3.6 2.6-6.2 6.2-6.2 0 3.6-2.6 6.2-6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M4.5 20.5c2.1-2.6 4.7-3.6 7.5-3.6s5.4 1 7.5 3.6" />
+    </g>
+    <g transform="translate(980,110) scale(2.3) rotate(-10)">
+      <path d="M12 20.5v-7" />
+      <path d="M12 13.5c0-3.6-2.6-6.2-6.2-6.2 0 3.6 2.6 6.2 6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M12 10.3c0-3.6 2.6-6.2 6.2-6.2 0 3.6-2.6 6.2-6.2 6.2Z" fill="#0d9488" stroke="none" />
+      <path d="M4.5 20.5c2.1-2.6 4.7-3.6 7.5-3.6s5.4 1 7.5 3.6" />
+    </g>
+  </g>
+
+  <path d="M0,940 C 480,1015 1440,865 1920,960 L1920,1080 L0,1080 Z" fill="#ffffff" opacity="0.92" />
+</svg>

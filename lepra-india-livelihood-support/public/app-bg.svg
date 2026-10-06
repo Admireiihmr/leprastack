@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <!-- Workspace backdrop for the signed-in portals. Deliberately near-white:
+       it sits behind dense tables and dashboards, so it reads as a faint tint
+       rather than a picture. Teal and sky match the Lepra Stack palette. -->
+  <defs>
+    <radialGradient id="tealWash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(120 60) scale(900)">
+      <stop offset="0" stop-color="#0d9488" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#0d9488" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="skyWash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(1500 980) scale(880)">
+      <stop offset="0" stop-color="#0284c7" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.4" fill="#0f172a" fill-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <rect width="1600" height="1000" fill="url(#dots)"/>
+  <rect width="1600" height="1000" fill="url(#tealWash)"/>
+  <rect width="1600" height="1000" fill="url(#skyWash)"/>
+
+  <!-- One slow arc, low contrast, to break up the flat field. -->
+  <path d="M-40 760 C 320 640, 700 830, 1080 700 S 1520 560, 1660 620"
+        fill="none" stroke="#0d9488" stroke-opacity="0.07" stroke-width="1.5"/>
+  <path d="M-40 820 C 340 700, 720 890, 1100 760 S 1540 620, 1660 680"
+        fill="none" stroke="#0284c7" stroke-opacity="0.06" stroke-width="1.5"/>
+</svg>

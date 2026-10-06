@@ -1,0 +1,7 @@
+{
+  "operationalAlerts": "ପରିଚାଳନା ସତର୍କତା ({{role}})",
+  "clear": "ସଫା କରନ୍ତୁ",
+  "noActiveAlerts": "{{role}} ପାଇଁ କୌଣସି ସକ୍ରିୟ ସୂଚନା ସତର୍କତା ନାହିଁ।",
+  "beneficiaryEnrollmentSmsSent": "ହିତାଧିକାରୀ ପଞ୍ଜୀକରଣ SMS ପଠାଗଲା",
+  "markAsRead": "ପଢ଼ାଯାଇଛି ବୋଲି ଚିହ୍ନିତ କରନ୍ତୁ"
+}

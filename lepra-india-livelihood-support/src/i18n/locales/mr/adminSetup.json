@@ -1,0 +1,20 @@
+{
+  "back": "मागे",
+  "headerTitle": "एकवेळचे अ‍ॅडमिन प्रावधान",
+  "cardTitle": "Firebase खात्याला भूमिका नियुक्त करा",
+  "cardSubtitle": "अप्रूव्हर किंवा सुपर अ‍ॅडमिन प्रवेश देण्यासाठी हे एकदाच वापरा. खाते आधीच Firebase Authentication मध्ये असणे आवश्यक आहे.",
+  "howItWorksLabel": "हे कसे कार्य करते:",
+  "howItWorksBefore": "आम्ही तुम्ही दिलेल्या माहितीने साइन इन करतो, भूमिकेची नोंद येथे लिहितो",
+  "howItWorksAfter": ", आणि नंतर साइन आउट करतो. या डिव्हाइसवर काहीही साठवले जात नाही.",
+  "emailLabel": "ईमेल",
+  "passwordLabel": "पासवर्ड",
+  "displayNameLabel": "प्रदर्शित नाव",
+  "displayNamePlaceholder": "उदा. प्रोग्राम अप्रूव्हर",
+  "roleToAssignLabel": "नियुक्त करावयाची भूमिका",
+  "roleApprover": "अप्रूव्हर",
+  "roleSuperAdmin": "सुपर अ‍ॅडमिन",
+  "provisionedSuccess": "{{email}} ला \"{{role}}\" म्हणून यशस्वीरित्या जोडले. आता ते त्यांच्या पोर्टलवरून लॉगिन करू शकतात.",
+  "provisioningFailed": "भूमिका नियुक्ती अयशस्वी झाली.",
+  "submitButton": "भूमिका नियुक्त करा",
+  "footerNote": "खाते आधीच Firebase Console → Authentication → Users मध्ये असणे आवश्यक आहे."
+}
