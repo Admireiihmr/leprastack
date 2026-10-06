@@ -1,4 +1,3 @@
-// auto-deploy test
 import { z } from "zod";
 
 const passwordSchema = z
