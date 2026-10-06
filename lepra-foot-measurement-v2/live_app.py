@@ -1276,10 +1276,17 @@ HTML_APP = """
     body.sidebar-collapsed .sidebar-header { justify-content: center; }
 
     /* ── Main area ── */
+    /* App shell: fixed height column so the top bar stays put and .content is
+       the only thing that scrolls. A long intake form then scrolls under the
+       header instead of pushing it off screen. */
     .main-area {
       margin-left: var(--sidebar-w);
       transition: margin-left 0.25s ease;
-      min-height: 100vh;
+      height: 100vh;
+      height: 100dvh;          /* avoids the mobile URL-bar height jump */
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
     body.sidebar-collapsed .main-area { margin-left: var(--sidebar-collapsed-w); }
 
@@ -1292,8 +1299,7 @@ HTML_APP = """
       align-items: center;
       justify-content: space-between;
       padding: 0 24px;
-      position: sticky;
-      top: 0;
+      flex: 0 0 auto;          /* pinned: .content scrolls beneath it */
       z-index: 100;
     }
     .app-topbar .page-title {
@@ -1399,11 +1405,15 @@ HTML_APP = """
     /* ── Content ── */
     .content {
       padding: 24px;
-      max-width: 1600px;
-      margin: 0 auto;
       width: 100%;
+      flex: 1 1 auto;
+      min-height: 0;           /* lets the flex child shrink so it can scroll */
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
-    .section { display: none; }
+    /* Centring moved off .content so the scrollbar sits at the window edge
+       rather than against the 1600px box. */
+    .section { display: none; max-width: 1600px; margin: 0 auto; }
     .section.active { display: block; }
 
     /* ── Stats cards ── */
